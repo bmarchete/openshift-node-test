@@ -9,11 +9,11 @@ const server = restify.createServer({
 var knex = require('knex')({
     client: 'mysql',
     connection: {
-        host : process.env.OPENSHIFT_MYSQL_DB_HOST || 'localhost',
+        host : process.env.OPENSHIFT_MYSQL_DB_HOST || '127.0.0.1',
         port: process.env.OPENSHIFT_MYSQL_DB_PORT || 3306,
-        user : 'openshift',
-        password : 'mysql10102020',
-        database : 'db'
+        user : process.env.MYSQL_USER,
+        password : process.env.MYSQL_PASSWORD,
+        database : process.env.MYSQL_DATABASE
     }
   });
 
